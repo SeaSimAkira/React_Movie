@@ -1,14 +1,38 @@
+.movie-card-container {
+  display: flex;
+  flex-wrap: wrap; /* This is correct */
+  gap: 20px;
+  justify-content: flex-start;
+  padding: 20px;
+  width: 100%; /* Ensure container takes full width */
+  box-sizing: border-box; /* Includes padding in width calculation */
+}
+
 .movie-card {
   position: relative;
   border-radius: 8px;
   overflow: hidden;
   background-color: #1a1a1a;
   transition: transform 0.2s;
-  height: 100%;
+  
+  /* UPDATED PROPERTIES BELOW */
+  flex: 1 1 200px;
+  width: 100%;  /* Grow to fill space, don't shrink below 200px, wrap if needed */
+  max-width: none; /* Optional: prevents cards from getting TOO wide on huge screens */
   display: flex;
   flex-direction: column;
+ 
 }
-
+@media (max-width: 768px) {
+  .movie-card-container {
+    justify-content: center;
+  }
+}
+h3 {
+  font-size: 1.2rem;
+  margin: 0;
+  color: aliceblue;
+}
 .movie-card:hover {
   transform: translateY(-5px);
 }

@@ -8,8 +8,10 @@
   margin-bottom: 2rem;
   text-align: center;
   font-size: 2.5rem;
-  color: #ffffff;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  color: #ff3426;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.543);
+  background-color: rgba(0, 255, 255, 0.317);
+  border-radius: 10px;
 }
 
 .favorites-empty {
