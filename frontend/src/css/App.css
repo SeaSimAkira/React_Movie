@@ -5,4 +5,16 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+  
+  /* Added: Ensures the content starts from the top and matches 
+     the background of your dark movie cards */
+  min-height: 100vh; 
+  overflow-x: hidden; /* Prevents unwanted horizontal scrollbars */
+}
+
+/* Responsive adjustment for padding */
+@media (max-width: 768px) {
+  .main-content {
+    padding: 1rem; /* Reduce padding on mobile to give cards more room */
+  }
 }

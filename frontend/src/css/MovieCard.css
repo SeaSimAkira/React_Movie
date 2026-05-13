@@ -1,31 +1,42 @@
+/* The Parent Container */
 .movie-card-container {
   display: flex;
-  flex-wrap: wrap; /* This is correct */
+  flex-wrap: wrap;
   gap: 20px;
-  justify-content: flex-start;
   padding: 20px;
-  width: 100%; /* Ensure container takes full width */
-  box-sizing: border-box; /* Includes padding in width calculation */
+  justify-content: flex-start; /* Keeps items aligned to the left */
+  width: 100%;
+  box-sizing: border-box;
 }
 
+/* The Child Card */
 .movie-card {
-  position: relative;
-  border-radius: 8px;
-  overflow: hidden;
-  background-color: #1a1a1a;
-  transition: transform 0.2s;
+  /* Calculation: (100% width - (3 gaps * 20px)) divided by 4 cards */
+  flex: 0 0 calc((100% - (3 * 20px)) / 4);
   
-  /* UPDATED PROPERTIES BELOW */
-  flex: 1 1 200px;
-  width: 100%;  /* Grow to fill space, don't shrink below 200px, wrap if needed */
-  max-width: none; /* Optional: prevents cards from getting TOO wide on huge screens */
+  /* Robustness: ensures cards don't vanish if the screen is tiny */
+  min-width: 200px; 
   display: flex;
   flex-direction: column;
- 
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  overflow: hidden;
 }
-@media (max-width: 768px) {
+
+/* Responsive: 2 per row on tablets */
+@media (max-width: 1024px) {
+  .movie-card {
+    flex: 0 0 calc((100% - 20px) / 2);
+  }
+}
+
+/* Responsive: 1 per row on mobile */
+@media (max-width: 600px) {
+  .movie-card {
+    flex: 0 0 100%;
+  }
   .movie-card-container {
-    justify-content: center;
+    justify-content: center; /* Center the single card on mobile */
   }
 }
 h3 {
